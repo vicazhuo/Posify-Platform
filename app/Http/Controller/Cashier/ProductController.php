@@ -46,7 +46,6 @@ class ProductController
 
     }
 
-
     /**
      * get product description data in the store 获取收银台商品详情
      * @RequestMapping (route="get_info[/{gid}/{uid}]",method={RequestMethod::GET})

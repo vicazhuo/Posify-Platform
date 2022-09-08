@@ -10,8 +10,6 @@
 
 namespace App\Utils\Validate;
 
-
-
 /**
  * Class ValidateRule
  * @package App\Utils\Validate
@@ -35,7 +33,7 @@ namespace App\Utils\Validate;
  * @method ValidateRule allowIp(mixed $rule, string $msg = '') static 验证IP许可
  * @method ValidateRule denyIp(mixed $rule, string $msg = '') static 验证IP禁用
  * @method ValidateRule regex(mixed $rule, string $msg = '') static 使用正则验证数据
- * @method ValidateRule token(mixed $rule='__token__', string $msg = '') static 验证表单令牌
+ * @method ValidateRule token(mixed $rule = '__token__', string $msg = '') static 验证表单令牌
  * @method ValidateRule is(mixed $rule, string $msg = '') static 验证字段值是否为有效格式
  * @method ValidateRule isRequire(mixed $rule = null, string $msg = '') static 验证字段必须
  * @method ValidateRule isNumber(mixed $rule = null, string $msg = '') static 验证字段值是否为数字
@@ -86,12 +84,12 @@ class ValidateRule
     /**
      * 添加验证因子
      * @access protected
-     * @param  string    $name  验证名称
-     * @param  mixed     $rule  验证规则
-     * @param  string    $msg   提示信息
+     * @param string $name 验证名称
+     * @param mixed $rule 验证规则
+     * @param string $msg 提示信息
      * @return $this
      */
-    protected function addItem(string $name, $rule = null, string $msg = '')
+    protected function addItem($name, $rule = null, $msg = '')
     {
         if ($rule || 0 === $rule) {
             $this->rule[$name] = $rule;
@@ -109,7 +107,7 @@ class ValidateRule
      * @access public
      * @return array
      */
-    public function getRule(): array
+    public function getRule()
     {
         return $this->rule;
     }
@@ -119,9 +117,9 @@ class ValidateRule
      * @access public
      * @return string
      */
-    public function getTitle(): string
+    public function getTitle()
     {
-        return $this->title ?: '';
+        return $this->title;
     }
 
     /**
@@ -129,7 +127,7 @@ class ValidateRule
      * @access public
      * @return array
      */
-    public function getMsg(): array
+    public function getMsg()
     {
         return $this->message;
     }
@@ -139,7 +137,7 @@ class ValidateRule
      * @access public
      * @return $this
      */
-    public function title(string $title)
+    public function title($title)
     {
         $this->title = $title;
 
