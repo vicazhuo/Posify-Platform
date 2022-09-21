@@ -20,33 +20,23 @@ use Swoft\Db\Eloquent\Model;
 class AuthGroupAccess extends Model
 {
     /**
-     * 会员ID
-     * @Id(incrementing=false)
-     * @Column()
-     *
-     * @var int
-     */
-    private $uid;
-
-    /**
      * 级别ID
-     *
+     * @Id(incrementing=false)
      * @Column(name="group_id", prop="groupId")
      *
      * @var int
      */
     private $groupId;
 
-
     /**
-     * @param int $uid
+     * 会员ID
      *
-     * @return void
+     * @Column()
+     *
+     * @var int
      */
-    public function setUid(int $uid): void
-    {
-        $this->uid = $uid;
-    }
+    private $uid;
+
 
     /**
      * @param int $groupId
@@ -59,11 +49,13 @@ class AuthGroupAccess extends Model
     }
 
     /**
-     * @return int
+     * @param int $uid
+     *
+     * @return void
      */
-    public function getUid(): ?int
+    public function setUid(int $uid): void
     {
-        return $this->uid;
+        $this->uid = $uid;
     }
 
     /**
@@ -72,6 +64,14 @@ class AuthGroupAccess extends Model
     public function getGroupId(): ?int
     {
         return $this->groupId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUid(): ?int
+    {
+        return $this->uid;
     }
 
 }

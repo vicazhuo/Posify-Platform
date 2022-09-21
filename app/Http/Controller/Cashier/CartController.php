@@ -40,7 +40,7 @@ class CartController
 
     /**
      * delete a order for users on cashier desk 在收银台上删除购物车订单
-     * @RequestMapping (route="del_cart[/{uid}],method=::DELETE")
+     * @RequestMapping (route="del_cart[/{uid}]",method={RequestMethod::DELETE})
      * @param int $uid
      * @return Request
      */

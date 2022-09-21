@@ -21,6 +21,24 @@ class AdminPostLog extends Model
 {
     /**
      * 
+     *
+     * @Column(name="client_ip", prop="clientIp")
+     *
+     * @var string
+     */
+    private $clientIp;
+
+    /**
+     * 创建时间
+     *
+     * @Column(name="created_at", prop="createdAt")
+     *
+     * @var string|null
+     */
+    private $createdAt;
+
+    /**
+     * 
      * @Id()
      * @Column()
      *
@@ -31,47 +49,11 @@ class AdminPostLog extends Model
     /**
      * 
      *
-     * @Column()
-     *
-     * @var string
-     */
-    private $uri;
-
-    /**
-     * 
-     *
-     * @Column(name="client_ip", prop="clientIp")
-     *
-     * @var string
-     */
-    private $clientIp;
-
-    /**
-     * 
-     *
      * @Column(name="request_data", prop="requestData")
      *
      * @var string
      */
     private $requestData;
-
-    /**
-     * 
-     *
-     * @Column(name="created_at", prop="createdAt")
-     *
-     * @var string
-     */
-    private $createdAt;
-
-    /**
-     * 
-     *
-     * @Column(name="user_id", prop="userId")
-     *
-     * @var int
-     */
-    private $userId;
 
     /**
      * 
@@ -91,26 +73,24 @@ class AdminPostLog extends Model
      */
     private $statusCode;
 
+    /**
+     * 
+     *
+     * @Column()
+     *
+     * @var string
+     */
+    private $uri;
 
     /**
-     * @param int $id
+     * 
      *
-     * @return void
+     * @Column(name="user_id", prop="userId")
+     *
+     * @var int
      */
-    public function setId(int $id): void
-    {
-        $this->id = $id;
-    }
+    private $userId;
 
-    /**
-     * @param string $uri
-     *
-     * @return void
-     */
-    public function setUri(string $uri): void
-    {
-        $this->uri = $uri;
-    }
 
     /**
      * @param string $clientIp
@@ -123,6 +103,26 @@ class AdminPostLog extends Model
     }
 
     /**
+     * @param string|null $createdAt
+     *
+     * @return void
+     */
+    public function setCreatedAt(?string $createdAt): void
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @param int $id
+     *
+     * @return void
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
      * @param string $requestData
      *
      * @return void
@@ -130,26 +130,6 @@ class AdminPostLog extends Model
     public function setRequestData(string $requestData): void
     {
         $this->requestData = $requestData;
-    }
-
-    /**
-     * @param string $createdAt
-     *
-     * @return void
-     */
-    public function setCreatedAt(string $createdAt): void
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    /**
-     * @param int $userId
-     *
-     * @return void
-     */
-    public function setUserId(int $userId): void
-    {
-        $this->userId = $userId;
     }
 
     /**
@@ -173,19 +153,23 @@ class AdminPostLog extends Model
     }
 
     /**
-     * @return int
+     * @param string $uri
+     *
+     * @return void
      */
-    public function getId(): ?int
+    public function setUri(string $uri): void
     {
-        return $this->id;
+        $this->uri = $uri;
     }
 
     /**
-     * @return string
+     * @param int $userId
+     *
+     * @return void
      */
-    public function getUri(): ?string
+    public function setUserId(int $userId): void
     {
-        return $this->uri;
+        $this->userId = $userId;
     }
 
     /**
@@ -197,15 +181,7 @@ class AdminPostLog extends Model
     }
 
     /**
-     * @return string
-     */
-    public function getRequestData(): ?string
-    {
-        return $this->requestData;
-    }
-
-    /**
-     * @return string
+     * @return string|null
      */
     public function getCreatedAt(): ?string
     {
@@ -215,9 +191,17 @@ class AdminPostLog extends Model
     /**
      * @return int
      */
-    public function getUserId(): ?int
+    public function getId(): ?int
     {
-        return $this->userId;
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRequestData(): ?string
+    {
+        return $this->requestData;
     }
 
     /**
@@ -234,6 +218,22 @@ class AdminPostLog extends Model
     public function getStatusCode(): ?int
     {
         return $this->statusCode;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUri(): ?string
+    {
+        return $this->uri;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUserId(): ?int
+    {
+        return $this->userId;
     }
 
 }

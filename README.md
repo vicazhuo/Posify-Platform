@@ -1,15 +1,54 @@
-<p align="center">
-    <a href="https://github.com/swoft-cloud/swoft" target="_blank">
-        <img src="http://qiniu.daydaygo.top/swoft-logo.png?imageView2/2/w/300" alt="swoft"/>
-    </a>
-</p>
+### Retail POS pro 
+​         Retail POS pro 是基于swoft 2.x 开发的新零售多门店系统是一款专为线下门店用户打造的智慧门店系统，配有丰富的数字化功能，涵盖门店管理系统，收银系统、会员管理系统、营销拓客系统等，实现“线上下单，到店服务；线上充值，门店消费；线上线下统一经营和独特的社交营销玩法”，深度链接门店运营一体化解决方案，助力线下门店快速提升管理效率， 降低运营成本，获得数字化运营能力。
 
+同时与SCRM系统深度结合，后台有完善的客户、客户群管理和运营工具，赋予企业更强大的私域运营能力。将线下的客户转入线上会员体系，将线上的客户导流到线下购物，与商城系统完美结合，相得益彰！
 
+#### 门店管理系统
+提高门店管理效率，降低运营成本
+包含商品管理、订单管理、员工管理、财务管理、数据管理等
 
-### swoft Xadmin 
-基于swoft 2.x 和 xadmin 开发的快速后台框架。
+#### 收银系统
+对接扫码枪、小票打印机、扫码支付、记账收款、订单挂单、订单核销、会员账户、多种支付方式等
 
-##### 版本和依赖要求：
+会员管理系统
+精细化的会员资源运营管理
+会员档案、会员等级、会员权益、会员储值、会员积分、会员标签、微信会员卡等
+
+#### 营销系统
+积分商城、优惠券、满减满折、满送活动、限时折扣、第N件N折、秒杀活动等
+
+#### SCRM系统
+客户运营：客户管理、企微渠道码、客户群发、发布朋友圈、好友欢迎语
+客户群运营：客户群列表、自动拉群、客户群群发
+
+#### 多终端
+Pro 多门店系统具有丰富的终端体系
+
+1、移动端商城：
+（1）微信小程序
+（2）微信公众号
+（3）H5
+（4）APP
+（5）PC/iPad
+
+2、客服系统：
+（1）微信小程序
+（2）微信公众号
+（3）H5
+（4）APP
+（5）PC/iPad
+
+3、PC/iPad 独立收银台
+
+4、独立门店管理系统
+
+5、移动端订单管理
+
+6、移动端导购订单管理
+
+7、企业微信侧边栏客户管理
+
+#### 版本和依赖要求：
 * php 7.2+
 * swoole 4.4+
 * php-redis拓展
@@ -18,16 +57,13 @@
 ##### 参考文档
 [swoole文档](https://wiki.swoole.com/)  
 [swoft文档](https://swoft.org/docs)  
-[xadmin演示](http://x.xuebingsi.com/)  
- 
+[系统演示](http://x.xuebingsi.com/)  
+
 # 升级记录
 
 |  版本   | 更新内容  |
 |  ----  | ----  |
-| v0.0.1  |  |
-| v0.0.2  | 删除一个特别智障的问题 | 
-| v0.0.3  | 修复一些特别蛋疼的问题 | 
-| v0.1.0  | 修复一些无聊的问题，使用官方session组件 | 
+| v0.0.1  | 更新基础骨架 |
 
 # 安装方法
 * 1、修改```./config/dev(pro)/bese.php```中关于数据库的配置  
@@ -186,7 +222,7 @@ http://DOMAIN/admin/{Controller}/add
 
 ```php
 __addDisplay():Response
-``` 
+```
 * 重写渲染页面，返回```Swoft\Http\Message\Response``` 对象
 
 ```php
@@ -214,7 +250,7 @@ __editUpdateBefore(array $requestParams):bool
 
 ```php
 __editDisplay(array $info):Response
-``` 
+```
 * ```array $info```主键查询结果数组。
 * 重写渲染页面，返回```Swoft\Http\Message\Response``` 对象
 
@@ -313,4 +349,4 @@ __delAfter(Mix $result):Response
 
 Swoft is an open-source software licensed under the [LICENSE](LICENSE)
 
-power by ethan[touch_789@163.com] [LICENSE](LICENSE)
+power by ethan[wayenzhuo@gmain.com] [LICENSE](LICENSE)

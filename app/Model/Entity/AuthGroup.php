@@ -20,6 +20,15 @@ use Swoft\Db\Eloquent\Model;
 class AuthGroup extends Model
 {
     /**
+     * 创建时间
+     *
+     * @Column(name="created_at", prop="createdAt")
+     *
+     * @var string|null
+     */
+    private $createdAt;
+
+    /**
      * 
      * @Id()
      * @Column()
@@ -27,15 +36,6 @@ class AuthGroup extends Model
      * @var int
      */
     private $id;
-
-    /**
-     * 父组别
-     *
-     * @Column()
-     *
-     * @var int
-     */
-    private $pid;
 
     /**
      * 组名
@@ -47,6 +47,15 @@ class AuthGroup extends Model
     private $name;
 
     /**
+     * 父组别
+     *
+     * @Column()
+     *
+     * @var int
+     */
+    private $pid;
+
+    /**
      * 规则ID
      *
      * @Column()
@@ -54,24 +63,6 @@ class AuthGroup extends Model
      * @var string
      */
     private $rules;
-
-    /**
-     * 创建时间
-     *
-     * @Column(name="created_at", prop="createdAt")
-     *
-     * @var string|null
-     */
-    private $createdAt;
-
-    /**
-     * 更新时间
-     *
-     * @Column(name="updated_at", prop="updatedAt")
-     *
-     * @var string|null
-     */
-    private $updatedAt;
 
     /**
      * 状态
@@ -82,6 +73,25 @@ class AuthGroup extends Model
      */
     private $status;
 
+    /**
+     * 更新时间
+     *
+     * @Column(name="updated_at", prop="updatedAt")
+     *
+     * @var string|null
+     */
+    private $updatedAt;
+
+
+    /**
+     * @param string|null $createdAt
+     *
+     * @return void
+     */
+    public function setCreatedAt(?string $createdAt): void
+    {
+        $this->createdAt = $createdAt;
+    }
 
     /**
      * @param int $id
@@ -91,16 +101,6 @@ class AuthGroup extends Model
     public function setId(int $id): void
     {
         $this->id = $id;
-    }
-
-    /**
-     * @param int $pid
-     *
-     * @return void
-     */
-    public function setPid(int $pid): void
-    {
-        $this->pid = $pid;
     }
 
     /**
@@ -114,6 +114,16 @@ class AuthGroup extends Model
     }
 
     /**
+     * @param int $pid
+     *
+     * @return void
+     */
+    public function setPid(int $pid): void
+    {
+        $this->pid = $pid;
+    }
+
+    /**
      * @param string $rules
      *
      * @return void
@@ -121,26 +131,6 @@ class AuthGroup extends Model
     public function setRules(string $rules): void
     {
         $this->rules = $rules;
-    }
-
-    /**
-     * @param string|null $createdAt
-     *
-     * @return void
-     */
-    public function setCreatedAt(?string $createdAt): void
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    /**
-     * @param string|null $updatedAt
-     *
-     * @return void
-     */
-    public function setUpdatedAt(?string $updatedAt): void
-    {
-        $this->updatedAt = $updatedAt;
     }
 
     /**
@@ -154,11 +144,37 @@ class AuthGroup extends Model
     }
 
     /**
+     * @param string|null $updatedAt
+     *
+     * @return void
+     */
+    public function setUpdatedAt(?string $updatedAt): void
+    {
+        $this->updatedAt = $updatedAt;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCreatedAt(): ?string
+    {
+        return $this->createdAt;
+    }
+
+    /**
      * @return int
      */
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName(): ?string
+    {
+        return $this->name;
     }
 
     /**
@@ -172,33 +188,9 @@ class AuthGroup extends Model
     /**
      * @return string
      */
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    /**
-     * @return string
-     */
     public function getRules(): ?string
     {
         return $this->rules;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getCreatedAt(): ?string
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getUpdatedAt(): ?string
-    {
-        return $this->updatedAt;
     }
 
     /**
@@ -207,6 +199,14 @@ class AuthGroup extends Model
     public function getStatus(): ?string
     {
         return $this->status;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getUpdatedAt(): ?string
+    {
+        return $this->updatedAt;
     }
 
 }
