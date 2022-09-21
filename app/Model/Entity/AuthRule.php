@@ -20,40 +20,13 @@ use Swoft\Db\Eloquent\Model;
 class AuthRule extends Model
 {
     /**
-     * 
-     * @Id()
-     * @Column()
+     * 创建时间
      *
-     * @var int
+     * @Column(name="created_at", prop="createdAt")
+     *
+     * @var string|null
      */
-    private $id;
-
-    /**
-     * menu为菜单,file为权限节点
-     *
-     * @Column()
-     *
-     * @var string
-     */
-    private $type;
-
-    /**
-     * 父ID
-     *
-     * @Column()
-     *
-     * @var int
-     */
-    private $pid;
-
-    /**
-     * 规则名称
-     *
-     * @Column()
-     *
-     * @var string
-     */
-    private $title;
+    private $createdAt;
 
     /**
      * 图标
@@ -65,6 +38,24 @@ class AuthRule extends Model
     private $icon;
 
     /**
+     * 
+     * @Id()
+     * @Column()
+     *
+     * @var int
+     */
+    private $id;
+
+    /**
+     * 父ID
+     *
+     * @Column()
+     *
+     * @var int
+     */
+    private $pid;
+
+    /**
      * 备注
      *
      * @Column()
@@ -74,13 +65,40 @@ class AuthRule extends Model
     private $remark;
 
     /**
-     * 创建时间
+     * 
      *
-     * @Column(name="created_at", prop="createdAt")
+     * @Column()
      *
-     * @var string|null
+     * @var string
      */
-    private $createdAt;
+    private $route;
+
+    /**
+     * 状态
+     *
+     * @Column()
+     *
+     * @var int
+     */
+    private $status;
+
+    /**
+     * 规则名称
+     *
+     * @Column()
+     *
+     * @var string
+     */
+    private $title;
+
+    /**
+     * menu为菜单,file为权限节点
+     *
+     * @Column()
+     *
+     * @var string
+     */
+    private $type;
 
     /**
      * 更新时间
@@ -100,63 +118,15 @@ class AuthRule extends Model
      */
     private $weigh;
 
-    /**
-     * 状态
-     *
-     * @Column()
-     *
-     * @var int
-     */
-    private $status;
 
     /**
-     * 
-     *
-     * @Column()
-     *
-     * @var string
-     */
-    private $route;
-
-
-    /**
-     * @param int $id
+     * @param string|null $createdAt
      *
      * @return void
      */
-    public function setId(int $id): void
+    public function setCreatedAt(?string $createdAt): void
     {
-        $this->id = $id;
-    }
-
-    /**
-     * @param string $type
-     *
-     * @return void
-     */
-    public function setType(string $type): void
-    {
-        $this->type = $type;
-    }
-
-    /**
-     * @param int $pid
-     *
-     * @return void
-     */
-    public function setPid(int $pid): void
-    {
-        $this->pid = $pid;
-    }
-
-    /**
-     * @param string $title
-     *
-     * @return void
-     */
-    public function setTitle(string $title): void
-    {
-        $this->title = $title;
+        $this->createdAt = $createdAt;
     }
 
     /**
@@ -170,6 +140,26 @@ class AuthRule extends Model
     }
 
     /**
+     * @param int $id
+     *
+     * @return void
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @param int $pid
+     *
+     * @return void
+     */
+    public function setPid(int $pid): void
+    {
+        $this->pid = $pid;
+    }
+
+    /**
      * @param string $remark
      *
      * @return void
@@ -180,13 +170,43 @@ class AuthRule extends Model
     }
 
     /**
-     * @param string|null $createdAt
+     * @param string $route
      *
      * @return void
      */
-    public function setCreatedAt(?string $createdAt): void
+    public function setRoute(string $route): void
     {
-        $this->createdAt = $createdAt;
+        $this->route = $route;
+    }
+
+    /**
+     * @param int $status
+     *
+     * @return void
+     */
+    public function setStatus(int $status): void
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @param string $title
+     *
+     * @return void
+     */
+    public function setTitle(string $title): void
+    {
+        $this->title = $title;
+    }
+
+    /**
+     * @param string $type
+     *
+     * @return void
+     */
+    public function setType(string $type): void
+    {
+        $this->type = $type;
     }
 
     /**
@@ -210,23 +230,19 @@ class AuthRule extends Model
     }
 
     /**
-     * @param int $status
-     *
-     * @return void
+     * @return string|null
      */
-    public function setStatus(int $status): void
+    public function getCreatedAt(): ?string
     {
-        $this->status = $status;
+        return $this->createdAt;
     }
 
     /**
-     * @param string $route
-     *
-     * @return void
+     * @return string
      */
-    public function setRoute(string $route): void
+    public function getIcon(): ?string
     {
-        $this->route = $route;
+        return $this->icon;
     }
 
     /**
@@ -235,14 +251,6 @@ class AuthRule extends Model
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getType(): ?string
-    {
-        return $this->type;
     }
 
     /**
@@ -256,6 +264,30 @@ class AuthRule extends Model
     /**
      * @return string
      */
+    public function getRemark(): ?string
+    {
+        return $this->remark;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRoute(): ?string
+    {
+        return $this->route;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStatus(): ?int
+    {
+        return $this->status;
+    }
+
+    /**
+     * @return string
+     */
     public function getTitle(): ?string
     {
         return $this->title;
@@ -264,25 +296,9 @@ class AuthRule extends Model
     /**
      * @return string
      */
-    public function getIcon(): ?string
+    public function getType(): ?string
     {
-        return $this->icon;
-    }
-
-    /**
-     * @return string
-     */
-    public function getRemark(): ?string
-    {
-        return $this->remark;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getCreatedAt(): ?string
-    {
-        return $this->createdAt;
+        return $this->type;
     }
 
     /**
@@ -299,22 +315,6 @@ class AuthRule extends Model
     public function getWeigh(): ?int
     {
         return $this->weigh;
-    }
-
-    /**
-     * @return int
-     */
-    public function getStatus(): ?int
-    {
-        return $this->status;
-    }
-
-    /**
-     * @return string
-     */
-    public function getRoute(): ?string
-    {
-        return $this->route;
     }
 
 }

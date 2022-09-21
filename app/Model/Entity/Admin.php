@@ -20,6 +20,15 @@ use Swoft\Db\Eloquent\Model;
 class Admin extends Model
 {
     /**
+     * 0 禁用，1启用
+     *
+     * @Column(name="admin_bs", prop="adminBs")
+     *
+     * @var int|null
+     */
+    private $adminBs;
+
+    /**
      * 
      * @Id()
      * @Column(name="admin_id", prop="adminId")
@@ -31,11 +40,11 @@ class Admin extends Model
     /**
      * 
      *
-     * @Column(name="admin_username", prop="adminUsername")
+     * @Column(name="admin_nickname", prop="adminNickname")
      *
-     * @var string|null
+     * @var string
      */
-    private $adminUsername;
+    private $adminNickname;
 
     /**
      * 
@@ -49,20 +58,20 @@ class Admin extends Model
     /**
      * 
      *
+     * @Column(name="admin_username", prop="adminUsername")
+     *
+     * @var string|null
+     */
+    private $adminUsername;
+
+    /**
+     * 
+     *
      * @Column(name="created_at", prop="createdAt")
      *
      * @var string|null
      */
     private $createdAt;
-
-    /**
-     * 0 禁用，1启用
-     *
-     * @Column(name="admin_bs", prop="adminBs")
-     *
-     * @var int|null
-     */
-    private $adminBs;
 
     /**
      * 
@@ -73,55 +82,6 @@ class Admin extends Model
      */
     private $updatedAt;
 
-    /**
-     * 
-     *
-     * @Column(name="admin_nickname", prop="adminNickname")
-     *
-     * @var string
-     */
-    private $adminNickname;
-
-
-    /**
-     * @param int $adminId
-     *
-     * @return void
-     */
-    public function setAdminId(int $adminId): void
-    {
-        $this->adminId = $adminId;
-    }
-
-    /**
-     * @param string|null $adminUsername
-     *
-     * @return void
-     */
-    public function setAdminUsername(?string $adminUsername): void
-    {
-        $this->adminUsername = $adminUsername;
-    }
-
-    /**
-     * @param string|null $adminPwd
-     *
-     * @return void
-     */
-    public function setAdminPwd(?string $adminPwd): void
-    {
-        $this->adminPwd = $adminPwd;
-    }
-
-    /**
-     * @param string|null $createdAt
-     *
-     * @return void
-     */
-    public function setCreatedAt(?string $createdAt): void
-    {
-        $this->createdAt = $createdAt;
-    }
 
     /**
      * @param int|null $adminBs
@@ -134,13 +94,13 @@ class Admin extends Model
     }
 
     /**
-     * @param string|null $updatedAt
+     * @param int $adminId
      *
      * @return void
      */
-    public function setUpdatedAt(?string $updatedAt): void
+    public function setAdminId(int $adminId): void
     {
-        $this->updatedAt = $updatedAt;
+        $this->adminId = $adminId;
     }
 
     /**
@@ -154,6 +114,54 @@ class Admin extends Model
     }
 
     /**
+     * @param string|null $adminPwd
+     *
+     * @return void
+     */
+    public function setAdminPwd(?string $adminPwd): void
+    {
+        $this->adminPwd = $adminPwd;
+    }
+
+    /**
+     * @param string|null $adminUsername
+     *
+     * @return void
+     */
+    public function setAdminUsername(?string $adminUsername): void
+    {
+        $this->adminUsername = $adminUsername;
+    }
+
+    /**
+     * @param string|null $createdAt
+     *
+     * @return void
+     */
+    public function setCreatedAt(?string $createdAt): void
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @param string|null $updatedAt
+     *
+     * @return void
+     */
+    public function setUpdatedAt(?string $updatedAt): void
+    {
+        $this->updatedAt = $updatedAt;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getAdminBs(): ?int
+    {
+        return $this->adminBs;
+    }
+
+    /**
      * @return int
      */
     public function getAdminId(): ?int
@@ -162,11 +170,11 @@ class Admin extends Model
     }
 
     /**
-     * @return string|null
+     * @return string
      */
-    public function getAdminUsername(): ?string
+    public function getAdminNickname(): ?string
     {
-        return $this->adminUsername;
+        return $this->adminNickname;
     }
 
     /**
@@ -180,17 +188,17 @@ class Admin extends Model
     /**
      * @return string|null
      */
-    public function getCreatedAt(): ?string
+    public function getAdminUsername(): ?string
     {
-        return $this->createdAt;
+        return $this->adminUsername;
     }
 
     /**
-     * @return int|null
+     * @return string|null
      */
-    public function getAdminBs(): ?int
+    public function getCreatedAt(): ?string
     {
-        return $this->adminBs;
+        return $this->createdAt;
     }
 
     /**
@@ -199,14 +207,6 @@ class Admin extends Model
     public function getUpdatedAt(): ?string
     {
         return $this->updatedAt;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAdminNickname(): ?string
-    {
-        return $this->adminNickname;
     }
 
 }

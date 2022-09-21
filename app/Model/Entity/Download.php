@@ -21,12 +21,30 @@ class Download extends Model
 {
     /**
      * 
+     *
+     * @Column(name="created_at", prop="createdAt")
+     *
+     * @var string|null
+     */
+    private $createdAt;
+
+    /**
+     * 
      * @Id()
      * @Column()
      *
      * @var int
      */
     private $id;
+
+    /**
+     * 下载地址
+     *
+     * @Column()
+     *
+     * @var string
+     */
+    private $path;
 
     /**
      * 
@@ -46,24 +64,16 @@ class Download extends Model
      */
     private $uid;
 
-    /**
-     * 下载地址
-     *
-     * @Column()
-     *
-     * @var string
-     */
-    private $path;
 
     /**
-     * 
+     * @param string|null $createdAt
      *
-     * @Column(name="created_at", prop="createdAt")
-     *
-     * @var string|null
+     * @return void
      */
-    private $createdAt;
-
+    public function setCreatedAt(?string $createdAt): void
+    {
+        $this->createdAt = $createdAt;
+    }
 
     /**
      * @param int $id
@@ -73,6 +83,16 @@ class Download extends Model
     public function setId(int $id): void
     {
         $this->id = $id;
+    }
+
+    /**
+     * @param string $path
+     *
+     * @return void
+     */
+    public function setPath(string $path): void
+    {
+        $this->path = $path;
     }
 
     /**
@@ -96,23 +116,11 @@ class Download extends Model
     }
 
     /**
-     * @param string $path
-     *
-     * @return void
+     * @return string|null
      */
-    public function setPath(string $path): void
+    public function getCreatedAt(): ?string
     {
-        $this->path = $path;
-    }
-
-    /**
-     * @param string|null $createdAt
-     *
-     * @return void
-     */
-    public function setCreatedAt(?string $createdAt): void
-    {
-        $this->createdAt = $createdAt;
+        return $this->createdAt;
     }
 
     /**
@@ -121,6 +129,14 @@ class Download extends Model
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPath(): ?string
+    {
+        return $this->path;
     }
 
     /**
@@ -137,22 +153,6 @@ class Download extends Model
     public function getUid(): ?int
     {
         return $this->uid;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPath(): ?string
-    {
-        return $this->path;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getCreatedAt(): ?string
-    {
-        return $this->createdAt;
     }
 
 }
