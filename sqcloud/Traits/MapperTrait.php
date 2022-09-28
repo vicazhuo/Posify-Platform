@@ -3,8 +3,7 @@
 namespace Sqcloud\Traits;
 /**
  * Notes:
- * User: azhuo
- * Company:APM monaco
+ * Company:Sqcloud
  * Auther: Wayen zhuo
  * Email wayenzhuo@gmail.com
  * DateTime: 2022/9/8 14:56

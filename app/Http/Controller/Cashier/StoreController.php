@@ -9,6 +9,8 @@
  */
 
 namespace App\Http\Controller\Cashier;
+use Sqcloud\Annotation\Promission;
+use Sqcloud\SqcloudResuest;
 use Swoft\Http\Message\Request;
 use Swoft\Http\Message\Response;
 use Swoft\Http\Server\Annotation\Mapping\Controller;
@@ -18,17 +20,21 @@ use Swoft\Http\Server\Annotation\Mapping\RequestMapping;
 use Swoft\Http\Server\Annotation\Mapping\RequestMethod;
 use Swoft\Http\Session\HttpSession;
 use Swoft\Redis\Redis;
+use Swoft\Validator\Annotation\Mapping\Validate;
 /**
  * Class StoreController
  * @package App\Http\Controller\Cashier
  *
  * @Controller(prefix="/cashierapi/store")
  */
-class StoreController
+class StoreController extends SqcloudResuest
 {
+
     /**
      * get currenly store cashier staff list
      * @RequestMapping (route="recharge_info",method={RequestMethod::GET})
+     * @Promission(authGruop="system:index:index")
+     * @Validate(validator="TestValidator")
      */
     public function recharge_info(Request $request)
     {

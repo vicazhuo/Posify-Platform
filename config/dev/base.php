@@ -45,5 +45,5 @@ return [
     ],
     "cache_keys"=>[
         "CACHE_MENU_LIST"=>'MENU_LIST' ,//菜单缓存
-    ]
+    ],
 ];
