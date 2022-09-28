@@ -34,12 +34,11 @@ class StoreController extends SqcloudResuest
      * get currenly store cashier staff list
      * @RequestMapping (route="recharge_info",method={RequestMethod::GET})
      * @Promission(authGruop="system:index:index")
-     * @Validate(validator="TestValidator")
      */
-    public function recharge_info(Request $request)
+    public function rechargeInfo(Request $request)
     {
 
-        return 'ok';
+        return 'ok-recharge_info';
     }
 
     /**
@@ -48,6 +47,6 @@ class StoreController extends SqcloudResuest
      */
     public function recharge(){
 
-
+        return 'ok-recharge';
     }
 }

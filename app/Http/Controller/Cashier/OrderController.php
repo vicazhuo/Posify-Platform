@@ -9,6 +9,7 @@
  */
 
 namespace App\Http\Controller\Cashier;
+use Sqcloud\Annotation\Promission;
 use Swoft\Http\Message\Request;
 use Swoft\Http\Message\Response;
 use Swoft\Http\Server\Annotation\Mapping\Controller;
@@ -52,10 +53,11 @@ class OrderController
     /**
      * get hold on order list.
      * @RequestMapping (route="get_hang_list",method={RequestMethod::GET})
+     * @Promission(authGroup="asdasdasd")
      */
     public function get_hang_list(){
 
-
+       return "get_hang_list";
     }
 
     /**

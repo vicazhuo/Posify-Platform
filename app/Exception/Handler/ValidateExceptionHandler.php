@@ -36,7 +36,6 @@ class ValidateExceptionHandler extends AbstractHttpErrorHandler
     {
         echo "ValidateExceptionHandler ============================>";
             print_r($e);
-
     }
 
 }
