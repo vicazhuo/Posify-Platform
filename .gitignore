@@ -1,4 +1,18 @@
-/vendor
-/runtime
-/public/uploads
+.DS_Store
+node_modules
+/dist
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.history
+# Editor directories and files
 .idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+.env
+.env.dev
